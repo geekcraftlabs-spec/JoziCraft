@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jozi Craft - FAQs</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        .header {
+            padding: 80px;
+            text-align: center;
+            background: #5a636d;
+            color: white;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+        }
+
+        .header p {
+            font-family: 'Lora', serif;
+            font-size: 18px;
+            color: #f4f4f4;
+            line-height: 1.8;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .faq-section {
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .faq-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background-color: #f9f9f9;
+            cursor: pointer;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            font-family: 'Playfair Display', serif;
+            border: none;
+            outline: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .faq-question:hover {
+            background-color: #e0e0e0;
+        }
+
+        .faq-question span {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1abc9c;
+        }
+
+        .faq-answer {
+            padding: 15px 20px;
+            font-family: 'Lora', serif;
+            font-size: 16px;
+            line-height: 1.6;
+            display: none;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .faq-answer.open {
+            display: block;
+        }
+
+        .faq-question.active span {
+            transform: rotate(45deg);
+            color: #e74c3c;
+        }
+
+        .submit-question {
+            margin: 30px auto;
+            max-width: 800px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f4f4f4;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-family: 'Lora', serif;
+        }
+
+        .submit-question h2 {
+            font-family: 'Playfair Display', serif;
+            color: #333;
+        }
+
+        .submit-question p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .submit-question form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .submit-question textarea,
+        .submit-question input {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Lora', serif;
+        }
+
+        .submit-question button {
+            padding: 10px 20px;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-question button:hover {
+            background-color: #16a085;
+        }
+
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: 10px;
+            }
+
+            .submit-question form {
+                width: 100%;
+                padding: 0 10px;
+            }
+        }
+
+        /* Enhanced Media Queries for Better Mobile Responsiveness */
+        @media screen and (max-width: 768px) {
+            /* Header adjustments */
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .header p {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+
+            /* Navigation improvements */
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .navbar a {
+                width: 100%;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            /* FAQ section adjustments */
+            .faq-section {
+                padding: 15px;
+                margin: 10px auto;
+            }
+
+            .faq-item {
+                margin-bottom: 8px;
+            }
+
+            .faq-question {
+                padding: 12px 15px;
+                font-size: 16px;
+            }
+
+            .faq-question span {
+                font-size: 20px;
+            }
+
+            .faq-answer {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            /* Submit question section improvements */
+            .submit-question {
+                margin: 20px auto;
+                padding: 15px;
+                width: 90%;
+            }
+
+            .submit-question h2 {
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+
+            .submit-question p {
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+
+            .submit-question textarea,
+            .submit-question input {
+                width: 90%;
+                padding: 8px;
+                font-size: 14px;
+            }
+
+            .submit-question button {
+                width: 90%;
+                max-width: 200px;
+                margin-top: 10px;
+            }
+        }
+
+        /* Additional adjustments for very small screens */
+        @media screen and (max-width: 480px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .faq-question {
+                font-size: 15px;
+            }
+
+            .faq-answer {
+                font-size: 13px;
+                line-height: 1.5;
+            }
+
+            .submit-question {
+                width: 95%;
+                padding: 12px;
+            }
+        }
+
+        /* Prevent horizontal scrolling on mobile */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Improve touch targets for mobile */
+        .navbar a,
+        .faq-question,
+        .submit-question button {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Ensure proper form display on mobile */
+        .submit-question textarea,
+        .submit-question input {
+            -webkit-appearance: none;
+            appearance: none;
+            border-radius: 5px;
+        }
+
+        /* Maintain accordion functionality on mobile */
+        .faq-question {
+            justify-content: space-between;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="faqs.html">FAQs</a>
+    </div>
+
+    <div class="header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Here are some of the most common questions our customers ask. If you have any other queries, feel free to contact us!</p>
+    </div>
+
+    <div class="faq-section">
+        <div class="faq-item">
+            <button class="faq-question">
+                What materials do you use for your furniture?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                We use only the highest quality wood, fabric, and other materials to ensure that our furniture is both durable and stylish.
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                Do you offer delivery?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                Yes, we offer delivery services to ensure that your new furniture arrives safely and on time. Delivery charges may apply based on location.
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                Can I customize my furniture?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                Absolutely! We offer customization options for most of our products. You can choose different finishes, fabrics, and sizes to fit your needs.
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                How long does it take to deliver my order?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                Delivery timelines vary depending on the item. Custom orders usually take 4-6 weeks, while in-stock items can be delivered within 7-10 days.
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                What is your return policy?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                We offer a 30-day return policy for unused furniture in its original packaging. Custom-made items are non-refundable.
+            </div>
+        </div>
+    </div>
+
+    <div class="submit-question">
+        <h2>Have More Questions?</h2>
+        <p>If you didn't find the answer you were looking for, feel free to submit your question below!</p>
+        <form action="https://formspree.io/f/xqaawnoe" method="POST">
+            <textarea name="question" placeholder="Type your question here..." required></textarea>
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // FAQ Accordion Functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const isOpen = answer.classList.contains('open');
+
+                // Close all answers
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+
+                // Toggle the clicked one
+                if (!isOpen) {
+                    answer.classList.add('open');
+                    button.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
