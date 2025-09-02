@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jozi Craft - About Us</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Open+Sans:wght@300;600&display=swap');
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+        }
+
+        .header {
+            padding: 80px;
+            text-align: center;
+            background: #5a636d;
+            color: white;
+        }
+
+        .header h1 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .header p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            color: #f4f4f4;
+            line-height: 1.8;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a.right {
+            float: right;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .content {
+            padding: 20px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(270deg, #D3D3D3, #F8F8F8, #F8F8F8, #D3D3D3, #f0e6d6, #c4c6c1);
+            background-size: 800% 800%;
+            animation: gradientShift 10s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .content h2 {
+            color: #1abc9c;
+            font-size: 32px;
+            text-align: center;
+            font-family: 'DM Sans', sans-serif;
+            margin-bottom: 15px;
+        }
+
+        .content p {
+    text-align: center; /* Centers the text of all paragraphs */
+    margin-bottom: 20px; /* Keeps spacing between paragraphs */
+    color: #444; /* Retains improved contrast */
+    font-size: 18px;
+    line-height: 1.8;
+    text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.1); /* Soft shadow for better readability */
+}
+
+        .cta-button {
+    display: inline-block;
+    background-color: #5a636d;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 25px; /* Makes the button more rounded */
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #16a085;
+}
+
+        /* Enhanced Media Queries for Better Mobile Responsiveness */
+        @media screen and (max-width: 768px) {
+            /* Header adjustments */
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .header h1 {
+                font-size: 36px;
+            }
+            
+            .header p {
+                font-size: 18px;
+                padding: 0 10px;
+            }
+
+            /* Navigation improvements */
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .navbar a {
+                width: 100%;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            /* Content section adjustments */
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .content h2 {
+                font-size: 28px;
+                margin: 25px 0 15px;
+            }
+            
+            .content p {
+                font-size: 16px;
+                padding: 0 10px;
+                margin-bottom: 20px;
+                text-align: left; /* Better readability on mobile */
+            }
+
+            /* CTA button improvements */
+            .cta-button {
+                display: block;
+                width: 80%;
+                max-width: 250px;
+                margin: 20px auto;
+                text-align: center;
+                padding: 12px 15px;
+            }
+        }
+
+        /* Additional adjustments for very small screens */
+        @media screen and (max-width: 480px) {
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .header p {
+                font-size: 16px;
+            }
+            
+            .content h2 {
+                font-size: 24px;
+            }
+            
+            .content p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+        }
+
+        /* Prevent horizontal scrolling on mobile */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Improve touch targets for mobile */
+        .navbar a, .cta-button {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="faqs.html" class="right">FAQs</a>
+    </div>
+
+    <div class="header">
+        <h1>About Us</h1>
+        <p>At Jozi Craft, we offer the finest quality furniture to make your home stylish and comfortable. Our team works hard to ensure that you get the best designs and top-notch quality at affordable prices.</p>
+    </div>
+
+    <div class="content">
+        <h2>The Mission and Vision</h2>
+        <p>At Jozi Craft, our mission is to transform houses into homes with premium furniture that combines functionality, elegance, and durability. We aim to make every piece a reflection of your unique style and a testament to superior craftsmanship. Our vision is to become a global leader in bespoke furniture, setting the standard for quality and innovation while ensuring every client's needs are met with unparalleled precision and care.</p>
+
+        <h2>Our Story</h2>
+        <p>Jozi Craft began with a simple belief: everyone deserves a space that feels truly their own. What started as a small workshop has grown into a trusted name in the furniture industry, where innovation meets tradition. From humble beginnings, we've crafted furniture that not only complements spaces but also tells a story. Today, we stand as a brand synonymous with customization, quality, and a passion for excellence.</p>
+
+        <h2>Core Values</h2>
+        <p>At Jozi Craft, we are guided by values that shape every aspect of our work. We value craftsmanship, customer satisfaction, innovation, sustainability, and integrity. These principles drive us to create furniture that exceeds expectations and brings joy to our customers' lives.</p>
+
+        <h2>What Sets Us Apart</h2>
+        <p>Jozi Craft isn't just another furniture brand; it's a partner in making your dream space a reality. We specialize in custom designs, tailoring every piece to your needs and style preferences. With a wide variety of furniture styles and a platform that showcases potential designs, we ensure a seamless journey from concept to creation. Every piece undergoes rigorous quality checks to ensure it exceeds expectations, and we provide end-to-end service to make the process effortless for you.</p>
+
+        <h2>Craftsmanship and Quality Assurance</h2>
+        <p>At Jozi Craft, we believe furniture should be more than just functional; it should be an expression of artistry and precision. Our team of skilled craftsmen combines time-honored techniques with modern innovations to create pieces that stand the test of time. We use only the finest materials, ensuring durability and elegance in every project. With a keen eye for detail and a passion for perfection, we guarantee furniture that not only meets but exceeds your expectations.</p>
+
+        <h2>Let's Bring Your Vision to Life</h2>
+        <p>Ready to elevate your living space? Let Jozi Craft bring your vision to life. Explore our collection, schedule a consultation, or share your ideas with us. Together, we'll craft furniture that reflects your style and transforms your home. <a href="contact.html" class="cta-button">Contact us today</a> to start your journey with Jozi Craft!</p>
+    </div>
+
+</body>
+</html>
