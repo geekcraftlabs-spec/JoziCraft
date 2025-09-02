@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jozi Craft - Home</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            padding: 80px;
+            text-align: center;
+            background: #5a636d;
+            color: white;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 65px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 25px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Landing Content Section */
+        .landing-content {
+            padding: 40px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .landing-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            color: #333;
+        }
+
+        .landing-content p {
+            font-family: 'Georgia', serif;
+            font-size: 18px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            font-family: 'Dancing Script', cursive; /* Cursive font */
+            background-color: #5a636d;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            background-color: #16a085;
+            transform: translateY(-2px);
+        }
+
+        /* Recents Section */
+        .recents-section {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .recents-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .recents-images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .recents-images img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .recents-images img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer Section Text */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+
+        /* Enhanced Media Queries for Better Mobile Responsiveness */
+        @media screen and (max-width: 768px) {
+            /* Header adjustments */
+            .header {
+                padding: 40px 15px;
+            }
+            
+            .header h1 {
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+            
+            .header p {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+            
+            /* Navigation improvements */
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0;
+            }
+            
+            .navbar a {
+                width: 100%;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            /* Recents section adjustments */
+            .recents-section {
+                padding: 20px 10px;
+            }
+            
+            .recents-images {
+                flex-direction: column;
+                gap: 15px;
+                padding: 0 15px;
+            }
+            
+            .recents-images img {
+                width: 100%;
+                height: 200px;
+                margin: 0;
+            }
+
+            /* Landing content improvements */
+            .landing-content {
+                padding: 30px 15px;
+            }
+            
+            .landing-content h2 {
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+            
+            .landing-content p {
+                font-size: 16px;
+                padding: 0 10px;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Additional adjustments for very small screens */
+        @media screen and (max-width: 480px) {
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .header p {
+                font-size: 14px;
+            }
+            
+            .landing-content h2 {
+                font-size: 20px;
+            }
+            
+            .landing-content p {
+                font-size: 14px;
+            }
+            
+            .cta-button {
+                font-size: 16px;
+                padding: 10px 15px;
+                width: 80%;
+                max-width: 250px;
+                margin: 15px auto;
+                display: block;
+            }
+        }
+
+        /* Prevent horizontal scrolling on mobile */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Improve touch targets for mobile */
+        .navbar a, .cta-button {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Jozi Craft</h1>
+        <p>Furniture That Feels Like Home</p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="faqs.html">FAQs</a>
+    </div>
+
+    <!-- Recents Section -->
+    <div class="recents-section">
+        <h2>Recents</h2>
+        <div class="recents-images">
+            <a href="portfolio.html"><img src="Work19.PNG" alt="Recent Work 1"></a>
+            <a href="portfolio.html"><img src="hboard1.1.jpg" alt="Recent Work 2"></a>
+            <a href="portfolio.html"><img src="dining1.PNG" alt="Recent Work 3"></a>
+            <a href="portfolio.html"><img src="couch2.PNG" alt="Recent Work 3"></a>
+        </div>
+    </div>
+
+    <!-- Landing Page Content -->
+    <div class="landing-content">
+        <h2>Transform Your Space with Jozi Craft</h2>
+        <p>At Jozi Craft, we provide exquisite furniture pieces designed to complement your living space and reflect your personal style. Whether you're furnishing your living room, bedroom, or office, we have something to fit your needs.</p>
+
+        <p>Discover the difference with Jozi Craft—where elegance meets functionality, and dreams become reality. Our collection features designs that blend modern aesthetics with timeless charm, ensuring every piece is as practical as it is beautiful.</p>
+
+        <a href="portfolio.html" class="cta-button">Explore Our Collection</a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2021 Jozi Craft. All rights reserved.
+    </footer>
+
+</body>
+</html>

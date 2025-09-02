@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jozi Craft - Our Work/Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display&family=Lora&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        
+        .header {
+            padding: 80px;
+            text-align: center;
+            background: #5a636d;
+            color: white;
+        }
+        
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+        }
+        
+        .header p {
+            font-family: 'Lora', serif;
+            font-size: 18px;
+            color: #f4f4f4;
+            line-height: 1.8;
+        }
+        
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+        
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        .content {
+            padding: 20px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(270deg, #808080, #A9A9A9, #F5F5DC, #FFFFF0, #B2AC88, #808080);
+            background-size: 800% 800%;
+            animation: gradientShift 14s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .recents-section {
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .recents-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .recents-images-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .recents-images {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            width: 80%;
+            padding: 10px 0;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+        
+        .recents-images img {
+            width: 220px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .recents-images img:hover {
+            transform: scale(1.1);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .modal-content {
+            position: relative;
+            margin: 5% auto;
+            padding: 20px;
+            background-color: white;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            min-height: 60%;
+            box-sizing: border-box;
+        }
+        
+        .media-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            flex-grow: 1;
+        }
+        
+        .modal-content img,
+        .modal-content video {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px 10px;
+            line-height: 1;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+        
+        .modal-close-button {
+            background-color: #ff3333;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 90%;
+            max-width: 200px;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 20px auto 10px;
+            display: block;
+            order: 2;
+        }
+        
+        .modal-close-button:hover {
+            background-color: #e60000;
+        }
+        
+        .recents-images::-webkit-scrollbar {
+            height: 6px;
+            background-color: #f4f4f4;
+            border-radius: 3px;
+        }
+        
+        .recents-images::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 3px;
+        }
+        
+        .recents-images::-webkit-scrollbar-thumb:hover {
+            background-color: #999;
+        }
+        
+        .welcome-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            opacity: 0;
+            animation: fadeInOut 10s ease forwards;
+        }
+        
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            10% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+            90% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+        }
+        
+        .cta-section {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #333;
+            margin: 40px 0;
+            padding: 20px;
+        }
+        
+        .cta-section p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            font-family: 'Dancing Script', cursive;
+            display: inline-block;
+            background-color: #1abc9c;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #16a085;
+        }
+        
+        /* Enhanced Media Queries for Better Mobile Responsiveness */
+        @media screen and (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .header p {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+        
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .navbar a {
+                width: 100%;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        
+            .recents-section {
+                padding: 20px 10px;
+            }
+            
+            .recents-section h2 {
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+        
+            .recents-images-wrapper {
+                padding: 0 5px;
+            }
+        
+            .recents-images {
+                gap: 10px;
+                padding: 5px 0;
+            }
+        
+            .recents-images img {
+                width: 160px;
+                height: 120px;
+            }
+        
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+                padding: 15px;
+            }
+        
+            .modal-content img,
+            .modal-content video {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+        
+            .close {
+                top: 5px;
+                right: 5px;
+                font-size: 32px;
+                padding: 10px;
+            }
+        
+            .modal-close-button {
+                padding: 15px 30px;
+                font-size: 18px;
+                margin: 20px auto 10px;
+            }
+        
+            .welcome-message {
+                width: 90%;
+                padding: 15px 20px;
+                font-size: 16px;
+            }
+        }
+        
+        /* Additional adjustments for very small screens */
+        @media screen and (max-width: 480px) {
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .recents-section h2 {
+                font-size: 22px;
+            }
+        
+            .recents-images img {
+                width: 140px;
+                height: 105px;
+            }
+        
+            .recents-images::-webkit-scrollbar {
+                height: 4px;
+            }
+        }
+        
+        /* Prevent horizontal scrolling on mobile */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        /* Improve touch targets for mobile */
+        .navbar a {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Ensure smooth scrolling on mobile */
+        .recents-images {
+            -webkit-overflow-scrolling: touch;
+        }
+        </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="faqs.html">FAQs</a>
+    </div>
+
+    <div class="header">
+        <h1>Portfolio</h1>
+        <p>Browse through our portfolio to see the wide variety of high-quality furniture we offer.</p>
+    </div>
+    
+    <div id="welcomeMessage" class="welcome-message">
+    <p>To See More Products Swipe From Left To Right<br> and <br> Click an Image to See More</p>
+</div>
+
+    <div class="content">
+    <!-- Reusable Section Template -->
+    <div class="recents-section">
+        <h2>TV BackDrops</h2>
+        <div class="recents-images-wrapper">
+            <div class="recents-images">
+                <a href="#" onclick="openModal('mediaModalBackDrop', 'media1', event)"><img src="Work.PNG" alt="TV Backdrop 1"></a>
+                <a href="#" onclick="openModal('mediaModalBackDrop', 'media2', event)"><img src="Work2.jpg" alt="TV Backdrop 2"></a>
+                <a href="#" onclick="openModal('mediaModalBackDrop', 'media3', event)"><img src="Work19.PNG" alt="TV Backdrop 3"></a>
+                <a href="#" onclick="openModal('mediaModalBackDrop', 'media4', event)"><img src="work8.PNG" alt="TV Backdrop 4"></a>
+                <a href="#" onclick="openModal('mediaModalBackDrop', 'media5', event)"><img src="work3.jpg" alt="TV Backdrop 5"></a>
+                <a href="#" onclick="openModal('mediaModalBackDrop', 'media6', event)"><img src="workninetn.png" alt="TV Backdrop 6"></a>
+                <a href="#" onclick="openModal('mediaModalBackDrop', 'media7', event)"><img src="Work6.jpg" alt="TV Backdrop 7"></a>
+                <a href="#" onclick="openModal('mediaModalBackDrop', 'media8', event)"><img src="Work7.jpg" alt="TV Backdrop 8"></a>
+                <a href="#" onclick="openModal('mediaModalBackDrop', 'media9', event)"><img src="work4.jpg" alt="TV Backdrop 9"></a>
+                <a href="#" onclick="openModal('mediaModalBackDrop', 'media10', event)"><img src="Work9.jpg" alt="TV Backdrop 10"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="recents-section">
+        <h2>TV Stands</h2>
+        <div class="recents-images-wrapper">
+            <div class="recents-images">
+                <a href="#" onclick="openModal('mediaModalTVStands', 'tvstand1', event)"><img src="tv1.jpg" alt="TV Stand 1"></a>
+                <a href="#" onclick="openModal('mediaModalTVStands', 'tvstand2', event)"><img src="tv2.PNG" alt="TV Stand 2"></a>
+                <a href="#" onclick="openModal('mediaModalTVStands', 'tvstand3', event)"><img src="tv3.1.PNG" alt="TV Stand 3"></a>
+                <a href="#" onclick="openModal('mediaModalTVStands', 'tvstand4', event)"><img src="tv4.jpg" alt="TV Stand 4"></a>
+                <a href="#" onclick="openModal('mediaModalTVStands', 'tvstand5', event)"><img src="tv5.PNG" alt="TV Stand 5"></a>
+                <a href="#" onclick="openModal('mediaModalTVStands', 'tvstand6', event)"><img src="tv6.PNG" alt="TV Stand 6"></a>
+                <a href="#" onclick="openModal('mediaModalTVStands', 'tvstand7', event)"><img src="tv7.jpg" alt="TV Stand 7"></a>
+                <a href="#" onclick="openModal('mediaModalTVStands', 'tvstand8', event)"><img src="tv8.PNG" alt="TV Stand 8"></a>
+                <a href="#" onclick="openModal('mediaModalTVStands', 'tvstand9', event)"><img src="tv9.jpg" alt="TV Stand 9"></a>
+                <a href="#" onclick="openModal('mediaModalTVStands', 'tvstand10', event)"><img src="tv10.jpg" alt="TV Stand 10"></a>
+            </div>
+        </div>
+    </div>
+
+     <div class="recents-section">
+        <h2>Couches</h2>
+        <div class="recents-images-wrapper">
+            <div class="recents-images">
+                <a href="#" onclick="openModal('mediaModalCouches', 'couch1', event)"><img src="couch1.jpg" alt="Couch 1"></a>
+                <a href="#" onclick="openModal('mediaModalCouches', 'couch2', event)"><img src="couch2.jpg" alt="Couch 2"></a>
+                <a href="#" onclick="openModal('mediaModalCouches', 'couch3', event)"><img src="couch3.jpg" alt="Couch 3"></a>
+                <a href="#" onclick="openModal('mediaModalCouches', 'couch4', event)"><img src="couch4.jpg" alt="Couch 4"></a>
+                <a href="#" onclick="openModal('mediaModalCouches', 'couch5', event)"><img src="couch5.jpg" alt="Couch 5"></a>
+                <a href="#" onclick="openModal('mediaModalCouches', 'couch6', event)"><img src="couch6.jpg" alt="Couch 6"></a>
+                <a href="#" onclick="openModal('mediaModalCouches', 'couch7', event)"><img src="couch7.jpg" alt="Couch 7"></a>
+                <a href="#" onclick="openModal('mediaModalCouches', 'couch8', event)"><img src="couch8.jpg" alt="Couch 8"></a>
+                <a href="#" onclick="openModal('mediaModalCouches', 'couch9', event)"><img src="couch9.jpg" alt="Couch 9"></a>
+                <a href="#" onclick="openModal('mediaModalCouches', 'couch10', event)"><img src="couch10.jpg" alt="Couch 10"></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="recents-section">
+        <h2>Headboards</h2>
+        <div class="recents-images-wrapper">
+            <div class="recents-images">
+                <a href="#" onclick="openModal('mediaModalHeadboards', 'headboard1', event)"><img src="hboard1.jpg" alt="Headboard 1"></a>
+                <a href="#" onclick="openModal('mediaModalHeadboards', 'headboard2', event)"><img src="hboard2.jpg" alt="Headboard 2"></a>
+                <a href="#" onclick="openModal('mediaModalHeadboards', 'headboard3', event)"><img src="hboard3.PNG" alt="Headboard 3"></a>
+                <a href="#" onclick="openModal('mediaModalHeadboards', 'headboard4', event)"><img src="hboard4.jpg" alt="Headboard 4"></a>
+                <a href="#" onclick="openModal('mediaModalHeadboards', 'headboard5', event)"><img src="hboard5.jpg" alt="Headboard 5"></a>
+                <a href="#" onclick="openModal('mediaModalHeadboards', 'headboard6', event)"><img src="hboard6.jpg" alt="Headboard 6"></a>
+                <a href="#" onclick="openModal('mediaModalHeadboards', 'headboard7', event)"><img src="hboard7.PNG" alt="Headboard 7"></a>
+                <a href="#" onclick="openModal('mediaModalHeadboards', 'headboard8', event)"><img src="hboard8.PNG" alt="Headboard 8"></a>
+                <a href="#" onclick="openModal('mediaModalHeadboards', 'headboard9', event)"><img src="hboard9.PNG" alt="Headboard 9"></a>
+                <a href="#" onclick="openModal('mediaModalHeadboards', 'headboard10', event)"><img src="hboard10..PNG" alt="Headboard 10"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="recents-section">
+        <h2>Bedside Tables</h2>
+        <div class="recents-images-wrapper">
+            <div class="recents-images">
+                <a href="#" onclick="openModal('mediaModalBedside', 'bedside1', event)"><img src="bed1.PNG" alt="Bedside Table 1"></a>
+                <a href="#" onclick="openModal('mediaModalBedside', 'bedside2', event)"><img src="bed2.PNG" alt="Bedside Table 2"></a>
+                <a href="#" onclick="openModal('mediaModalBedside', 'bedside3', event)"><img src="bed3.jpg" alt="Bedside Table 3"></a>
+                <a href="#" onclick="openModal('mediaModalBedside', 'bedside4', event)"><img src="bed4.jpg" alt="Bedside Table 4"></a>
+                <a href="#" onclick="openModal('mediaModalBedside', 'bedside5', event)"><img src="bed5.PNG" alt="Bedside Table 5"></a>
+                <a href="#" onclick="openModal('mediaModalBedside', 'bedside6', event)"><img src="bed6.PNG" alt="Bedside Table 6"></a>
+                <a href="#" onclick="openModal('mediaModalBedside', 'bedside7', event)"><img src="bed7.PNG" alt="Bedside Table 7"></a>
+                <a href="#" onclick="openModal('mediaModalBedside', 'bedside8', event)"><img src="bed8.PNG" alt="Bedside Table 8"></a>
+                <a href="#" onclick="openModal('mediaModalBedside', 'bedside9', event)"><img src="bed9.PNG" alt="Bedside Table 9"></a>
+                <a href="#" onclick="openModal('mediaModalBedside', 'bedside10', event)"><img src="bed10.PNG" alt="Bedside Table 10"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Repeat for other sections -->
+    <div class="recents-section">
+        <h2>Coffee Tables & Other Tables</h2>
+        <div class="recents-images-wrapper">
+            <div class="recents-images">
+                <a href="#" onclick="openModal('mediaModalCoffee', 'coffee1', event)"><img src="coffee1.PNG" alt="Coffee Table 1"></a>
+                <a href="#" onclick="openModal('mediaModalCoffee', 'coffee2', event)"><img src="coffee2.jpg" alt="Coffee Table 2"></a>
+                <a href="#" onclick="openModal('mediaModalCoffee', 'coffee3', event)"><img src="coffee3.PNG" alt="Coffee Table 3"></a>
+                <a href="#" onclick="openModal('mediaModalCoffee', 'coffee4', event)"><img src="coffee4.PNG" alt="Coffee Table 4"></a>
+                <a href="#" onclick="openModal('mediaModalCoffee', 'coffee5', event)"><img src="coffee5.jpg" alt="Coffee Table 5"></a>
+                <a href="#" onclick="openModal('mediaModalCoffee', 'coffee6', event)"><img src="coffee6.PNG" alt="Coffee Table 6"></a>
+                <a href="#" onclick="openModal('mediaModalCoffee', 'coffee7', event)"><img src="coffee7.jpg" alt="Coffee Table 7"></a>
+                <a href="#" onclick="openModal('mediaModalCoffee', 'coffee8', event)"><img src="coffee8.PNG" alt="Coffee Table 8"></a>
+                <a href="#" onclick="openModal('mediaModalCoffee', 'coffee9', event)"><img src="coffee9.PNG" alt="Coffee Table 9"></a>
+                <a href="#" onclick="openModal('mediaModalCoffee', 'coffee10', event)"><img src="coffee10.jpg" alt="Coffee Table 10"></a>
+               
+            </div>
+        </div>
+    </div>
+   
+
+    <div class="recents-section">
+        <h2>Dining Room Tables & Chest Of Drawers</h2>
+        <div class="recents-images-wrapper">
+            <div class="recents-images">
+                <a href="#" onclick="openModal('mediaModalDining', 'dining1', event)"><img src="dining1.PNG" alt="Dining Table 1"></a>
+                <a href="#" onclick="openModal('mediaModalDining', 'dining2', event)"><img src="dining2.jpg" alt="Dining Table 2"></a>
+                <a href="#" onclick="openModal('mediaModalDining', 'dining3', event)"><img src="dining3.jpg" alt="Dining Table 3"></a>
+                <a href="#" onclick="openModal('mediaModalDining', 'dining4', event)"><img src="dining4.jpg" alt="Dining Table 4"></a>
+                <a href="#" onclick="openModal('mediaModalDining', 'dining5', event)"><img src="dining5.PNG" alt="Dining Table 5"></a>
+                <a href="#" onclick="openModal('mediaModalDining', 'dining6', event)"><img src="dining6.jpg" alt="Dining Table 6"></a>
+                <a href="#" onclick="openModal('mediaModalDining', 'dining7', event)"><img src="dining7.PNG" alt="Dining Table 7"></a>
+                <a href="#" onclick="openModal('mediaModalDining', 'dining8', event)"><img src="dining8.jpg" alt="Dining Table 8"></a>
+                <a href="#" onclick="openModal('mediaModalDining', 'dining9', event)"><img src="dining9.jpg" alt="Dining Table 9"></a>
+                <a href="#" onclick="openModal('mediaModalDining', 'dining10', event)"><img src="dining10.jpg" alt="Dining Table 10"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="recents-section">
+        <h2>Full Kitchen Sets & Wardrobes</h2>
+        <div class="recents-images-wrapper">
+            <div class="recents-images">
+                <a href="#" onclick="openModal('mediaModalKitchens', 'kitchen1', event)"><img src="kich1.PNG" alt="Kitchen Set 1"></a>
+                <a href="#" onclick="openModal('mediaModalKitchens', 'kitchen2', event)"><img src="kich2.jpg" alt="Kitchen Set 2"></a>
+                <a href="#" onclick="openModal('mediaModalKitchens', 'kitchen3', event)"><img src="kich3.jpg" alt="Kitchen Set 3"></a>
+                <a href="#" onclick="openModal('mediaModalKitchens', 'kitchen4', event)"><img src="kich4.jpg" alt="Kitchen Set 4"></a>
+                <a href="#" onclick="openModal('mediaModalKitchens', 'kitchen5', event)"><img src="kich5.PNG" alt="Kitchen Set 5"></a>
+                <a href="#" onclick="openModal('mediaModalKitchens', 'kitchen6', event)"><img src="kich6.jpg" alt="Kitchen Set 6"></a>
+                <a href="#" onclick="openModal('mediaModalKitchens', 'kitchen7', event)"><img src="kich7.jpg" alt="Kitchen Set 7"></a>
+                <a href="#" onclick="openModal('mediaModalKitchens', 'kitchen8', event)"><img src="kich8.jpg" alt="Kitchen Set 8"></a>
+                <a href="#" onclick="openModal('mediaModalKitchens', 'kitchen9', event)"><img src="kich9.jpg" alt="Kitchen Set 9"></a>
+                <a href="#" onclick="openModal('mediaModalKitchens', 'kitchen10', event)"><img src="kich10.jpg" alt="Kitchen Set 10"></a>
+            </div>
+        </div>
+    </div>
+
+    
+
+   <!-- Modals for TV Backdrops -->
+<div id="mediaModalBackDrop" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('mediaModalBackDrop')">×</span>
+        <div id="media1" class="media-content" style="display: none;">
+            <img src="Work.PNG" alt="TV Backdrop 1">
+            <img src="Work.1.PNG" alt="TV Backdrop 1">
+        </div>
+        <div id="media2" class="media-content" style="display: none;">
+            <img src="Work2.jpg" alt="TV Backdrop 2">
+            
+        </div>
+        <div id="media3" class="media-content" style="display: none;">
+            <img src="Work19.PNG" alt="TV Backdrop 3">
+            <img src="Work19.1.PNG" alt="TV Backdrop 3">
+        </div>
+        <div id="media4" class="media-content" style="display: none;">
+            <img src="work8.1.PNG" alt="TV Backdrop 4">
+            <img src="work8.PNG" alt="TV Backdrop 4">
+        </div>
+        <div id="media5" class="media-content" style="display: none;">
+            <img src="work3.jpg" alt="TV Backdrop 5">
+            <img src="work3.1.PNG" alt="TV Backdrop 5">
+            <img src="Work16.jpg" alt="TV Backdrop 5">
+        </div>
+        <div id="media6" class="media-content" style="display: none;">
+            <img src="workninetn.png" alt="TV Backdrop 6">
+            <video controls>
+                <source src="WorkNIneTN.1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video controls>
+                <source src="WorkNIneTN.2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div id="media7" class="media-content" style="display: none;">
+            <img src="Work6.jpg" alt="TV Backdrop 7">
+            <video controls>
+                <source src="BackdropDemo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div id="media8" class="media-content" style="display: none;">
+            <img src="Work7.jpg" alt="TV Backdrop 8">
+            
+        </div>
+        <div id="media9" class="media-content" style="display: none;">
+            <img src="work4.jpg" alt="TV Backdrop 9">
+            
+        </div>
+        <div id="media10" class="media-content" style="display: none;">
+            <img src="Work9.jpg" alt="TV Backdrop 10">
+            
+        </div>
+    </div>
+</div>
+   <div id="mediaModalTVStands" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('mediaModalTVStands')">&times;</span>
+
+        <div id="tvstand1" class="media-content" style="display: none;">
+            <img src="tv1.jpg" alt="TV Stand 1">
+            
+        </div>
+
+        <div id="tvstand2" class="media-content" style="display: none;">
+            <img src="tv2.PNG" alt="TV Stand 2">
+            <img src="tv2.1.PNG" alt="TV Stand 2">
+        </div>
+
+        <div id="tvstand3" class="media-content" style="display: none;">
+            <img src="tv3.1.PNG" alt="TV Stand 3">
+            <img src="tv3.PNG" alt="TV Stand 3">
+        </div>
+
+        <!-- Fixing placement for tvstand4 to tvstand10 -->
+        <div id="tvstand4" class="media-content" style="display: none;">
+            <img src="tv4.jpg" alt="TV Stand 4">
+            <img src="tv4.1.jpg" alt="TV Stand 4">
+            <img src="tv4.2.jpg" alt="TV Stand 4">
+        </div>
+
+        <div id="tvstand5" class="media-content" style="display: none;">
+            <img src="tv5.PNG" alt="TV Stand 5">
+            <img src="tv5.1.PNG" alt="TV Stand 8">
+            <img src="tv5.2.PNG" alt="TV Stand 8">
+            
+        </div>
+        
+        <div id="tvstand6" class="media-content" style="display: none;">
+            <img src="tv6.PNG" alt="TV Stand 6">
+            
+        </div>
+        
+        <div id="tvstand7" class="media-content" style="display: none;">
+            <img src="tv7.jpg" alt="TV Stand 7">
+           
+        </div>
+        
+        <div id="tvstand8" class="media-content" style="display: none;">
+            <img src="tv8.PNG" alt="TV Stand 8">
+            
+        </div>
+        
+        <div id="tvstand9" class="media-content" style="display: none;">
+            <img src="tv9.jpg" alt="TV Stand 9">
+            
+        </div>
+        
+        <div id="tvstand10" class="media-content" style="display: none;">
+            <img src="tv10.jpg" alt="TV Stand 10">
+            
+        </div>
+
+     
+    </div>
+</div>
+
+<div id="mediaModalCouches" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('mediaModalCouches')">&times;</span>
+            <div id="couch1" class="media-content" style="display: none;">
+                <img src="couch1.jpg" alt="Couch 1">
+                <img src="couch1.1.jpg" alt="Couch 1">
+                <img src="couch1.2.jpg" alt="Couch 1">
+                
+            </div>
+            <div id="couch2" class="media-content" style="display: none;">
+                <img src="couch2.jpg" alt="Couch 2">
+                <img src="couch2.1.jpg" alt="Couch 2">
+                <img src="couch2.2.jpg" alt="Couch 2">
+                <img src="couch2.3.jpg" alt="Couch 2">
+                
+            </div>
+            
+            <div id="couch3" class="media-content" style="display: none;">
+                <img src="couch3.jpg" alt="Couch 3">
+                <img src="couch3.1.jpg" alt="Couch 3">
+            </div>
+            
+            <div id="couch4" class="media-content" style="display: none;">
+                <img src="couch4.jpg" alt="Couch 4">
+                <img src="couch4.1.jpg" alt="Couch 4">
+                <img src="couch4.2.jpg" alt="Couch 4">
+            </div>
+            
+            <div id="couch5" class="media-content" style="display: none;">
+                <img src="couch5.jpg" alt="Couch 5">
+                <img src="couch5.1.jpg" alt="Couch 5">
+                <img src="couch5.2.jpg" alt="Couch 5">
+                <img src="couch5.5.jpg" alt="Couch 5">
+                <img src="couch5.4.jpg" alt="Couch 5">
+                <img src="couch5.6.jpg" alt="Couch 5">
+            </div>
+            
+            <div id="couch6" class="media-content" style="display: none;">
+                <img src="couch6.jpg" alt="Couch 6">
+                <img src="couch6.1.jpg" alt="Couch 6">
+            </div>
+            
+            <div id="couch7" class="media-content" style="display: none;">
+                <img src="couch7.jpg" alt="Couch 7">
+                <img src="couch7.1.jpg" alt="Couch 7">
+            </div>
+            
+            <div id="couch8" class="media-content" style="display: none;">
+                <img src="couch8.jpg" alt="Couch 8">
+                <img src="couch8.1.jpg" alt="Couch 8">
+            </div>
+            
+            <div id="couch9" class="media-content" style="display: none;">
+                <img src="couch9.jpg" alt="Couch 9">
+                <img src="couch9.1.jpg" alt="Couch 9">
+            </div>
+            
+            <div id="couch10" class="media-content" style="display: none;">
+                <img src="couch10.jpg" alt="Couch 10">
+                <img src="couch10.1.jpg" alt="Couch 10">
+                <img src="couch10.2.jpg" alt="Couch 10">
+            </div>
+        </div>
+    </div>
+     
+    <div id="mediaModalHeadboards" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('mediaModalHeadboards')">&times;</span>
+            <div id="headboard1" class="media-content" style="display: none;">
+                <img src="hboard1.jpg" alt="Headboard 1">
+                 <img src="hboard1.1.jpg" alt="Headboard 1">
+                
+            </div>
+            
+            <div id="headboard2" class="media-content" style="display: none;">
+                <img src="hboard2.jpg" alt="Headboard 2">
+                <img src="hboard2.1.jpg" alt="Headboard 2">
+                <img src="hboard2.2.jpg" alt="Headboard 2">
+                
+            </div>
+            
+            <div id="headboard3" class="media-content" style="display: none;">
+                <img src="hboard3.PNG" alt="Headboard 3">
+                <img src="hboard3.1.PNG" alt="Headboard 3">
+                <img src="hboard3.2.PNG" alt="Headboard 3">
+            </div>
+            
+            <div id="headboard4" class="media-content" style="display: none;">
+                <img src="hboard4.jpg" alt="Headboard 4">
+                <img src="hboard4.1.jpg" alt="Headboard 4">
+                <img src="hboard4.2.jpg" alt="Headboard 4">
+                <img src="hboard4.3.jpg" alt="Headboard 4">
+            </div>
+            
+            <div id="headboard5" class="media-content" style="display: none;">
+                <img src="hboard5.jpg" alt="Headboard 5">
+                <img src="hboard5.1.jpg" alt="Headboard 5">
+                <img src="hboard5.3.jpg" alt="Headboard 5">
+            </div>
+            
+            <div id="headboard6" class="media-content" style="display: none;">
+                <img src="hboard6.jpg" alt="Headboard 6">
+                <img src="hboard6.1.jpg" alt="Headboard 6">
+            </div>
+            
+            <div id="headboard7" class="media-content" style="display: none;">
+                <img src="hboard7.PNG" alt="Headboard 7">
+                <img src="hboard7.1.PNG" alt="Headboard 7">
+                <img src="hboard7.2.PNG" alt="Headboard 7">
+            </div>
+            
+            <div id="headboard8" class="media-content" style="display: none;">
+                <img src="hboard8.PNG" alt="Headboard 8">
+                <img src="hboard8.1.PNG" alt="Headboard 8">
+            </div>
+            
+            <div id="headboard9" class="media-content" style="display: none;">
+                <img src="hboard9.PNG" alt="Headboard 9">
+                <img src="hboard9.1.PNG" alt="Headboard 9">
+            </div>
+            
+            <div id="headboard10" class="media-content" style="display: none;">
+                <img src="hboard10..PNG" alt="Headboard 10">
+                <img src="hboard10.1.PNG" alt="Headboard 10">
+            </div>
+        </div>
+    </div>
+
+    <div id="mediaModalBedside" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('mediaModalBedside')">&times;</span>
+            <div id="bedside1" class="media-content" style="display: none;">
+                <img src="bed1.PNG" alt="Bedside Table 1">
+                <img src="bed1.1.PNG" alt="Bedside Table 1"> 
+                <img src="bed1.2.PNG" alt="Bedside Table 1">
+            </div>
+            <div id="bedside2" class="media-content" style="display: none;">
+                <img src="bed2.PNG" alt="Bedside Table 2">
+                 <img src="bed2.1.PNG" alt="Bedside Table 2"> 
+                 <img src="bed2.2.PNG" alt="Bedside Table 2"> 
+            </div>
+            
+            <div id="bedside3" class="media-content" style="display: none;">
+                <img src="bed3.jpg" alt="Bedside Table 3">
+                <img src="bed3.1.jpg" alt="Bedside Table 3">
+            </div>
+            
+            <div id="bedside4" class="media-content" style="display: none;">
+                <img src="bed4.jpg" alt="Bedside Table 4">
+                <img src="bed4.1.jpg" alt="Bedside Table 4">
+                <img src="bed4.2.jpg" alt="Bedside Table 4">
+            </div>
+            
+            <div id="bedside5" class="media-content" style="display: none;">
+                <img src="bed5.PNG" alt="Bedside Table 5">
+                <img src="bed5.1.PNG" alt="Bedside Table 5">
+                <img src="bed5.2.PNG" alt="Bedside Table 5">
+            </div>
+            
+            <div id="bedside6" class="media-content" style="display: none;">
+                <img src="bed6.PNG" alt="Bedside Table 6">
+                <img src="bed6.1.PNG" alt="Bedside Table 6">
+            </div>
+            
+            <div id="bedside7" class="media-content" style="display: none;">
+                <img src="bed7.PNG" alt="Bedside Table 7">
+                <img src="bed7.1.PNG" alt="Bedside Table 7">
+            </div>
+            
+            <div id="bedside8" class="media-content" style="display: none;">
+                <img src="bed8.PNG" alt="Bedside Table 8">
+                <img src="bed8.1.PNG" alt="Bedside Table 8">
+                <img src="bed8.2.PNG" alt="Bedside Table 8">
+            </div>
+            
+            <div id="bedside9" class="media-content" style="display: none;">
+                <img src="bed9.PNG" alt="Bedside Table 9">
+                <img src="bed9.1.PNG" alt="Bedside Table 9">
+            </div>
+            
+            <div id="bedside10" class="media-content" style="display: none;">
+                <img src="bed10.PNG" alt="Bedside Table 10">
+                <img src="bed10.1.PNG" alt="Bedside Table 10">
+            </div>
+        </div>
+    </div>
+
+    <div id="mediaModalCoffee" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('mediaModalCoffee')">&times;</span>
+            <div id="coffee1" class="media-content" style="display: none;">
+                <img src="coffee1.PNG" alt="Coffee Table 1">
+                <img src="coffee1.2.PNG" alt="Coffee Table 1"> 
+                <img src="coffee1.3.PNG" alt="Coffee Table 1">              
+            </div>
+            <div id="coffee2" class="media-content" style="display: none;">
+                <img src="coffee2.jpg" alt="Coffee Table 2">
+                <img src="coffee2.1.jpg" alt="Coffee Table 2">
+            </div>
+            
+            <div id="coffee3" class="media-content" style="display: none;">
+                <img src="coffee3.PNG" alt="Coffee Table 3">
+                <img src="coffee3.1.PNG" alt="Coffee Table 3">
+                <img src="coffee3.2.PNG" alt="Coffee Table 3">
+            </div>
+            
+            <div id="coffee4" class="media-content" style="display: none;">
+                <img src="coffee4.PNG" alt="Coffee Table 4">
+                <img src="coffee4.2.PNG" alt="Coffee Table 4">
+            </div>
+            
+            <div id="coffee5" class="media-content" style="display: none;">
+                <img src="coffee5.jpg" alt="Coffee Table 5">
+                <img src="coffee5.1.jpg" alt="Coffee Table 5">
+                
+            </div>
+            
+            <div id="coffee6" class="media-content" style="display: none;">
+                <img src="coffee6.PNG" alt="Coffee Table 6">
+                <img src="coffee6.1.PNG" alt="Coffee Table 6">
+            </div>
+            
+            <div id="coffee7" class="media-content" style="display: none;">
+                <img src="coffee7.jpg" alt="Coffee Table 7">
+                 <video controls>
+                <source src="coffee7vid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            </div>
+            
+            <div id="coffee8" class="media-content" style="display: none;">
+                <img src="coffee8.PNG" alt="Coffee Table 8">
+                <img src="coffee8.1.PNG" alt="Coffee Table 8">
+                <img src="coffee8.2.PNG" alt="Coffee Table 8">
+            </div>
+            
+            <div id="coffee9" class="media-content" style="display: none;">
+                <img src="coffee9.PNG" alt="Coffee Table 9">
+                 <img src="coffee9.1.PNG" alt="Coffee Table 9">
+                  <img src="coffee9.2.jpg" alt="Coffee Table 9">
+            </div>
+            
+            <div id="coffee10" class="media-content" style="display: none;">
+                <img src="coffee10.jpg" alt="Coffee Table 10">
+                <img src="coffee10.1.jpg" alt="Coffee Table 10">
+                <img src="coffee10.2.jpg" alt="Coffee Table 10">
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="mediaModalDining" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('mediaModalDining')">&times;</span>
+            <div id="dining1" class="media-content" style="display: none;">
+                <img src="dining1.PNG" alt="Dining Table 1">
+                <img src="dining1.1.jpg" alt="Dining Table 1">
+            </div>
+            <div id="dining2" class="media-content" style="display: none;">
+                <img src="dining2.jpg" alt="Dining Table 2">
+                
+            </div>
+            
+            <div id="dining3" class="media-content" style="display: none;">
+                <img src="dining3.jpg" alt="Dining Table 3">
+            </div>
+            
+            <div id="dining4" class="media-content" style="display: none;">
+                <img src="dining4.jpg" alt="Dining Table 4">
+            </div>
+            
+            <div id="dining5" class="media-content" style="display: none;">
+                <img src="dining5.PNG" alt="Dining Table 5">
+            </div>
+            
+            <div id="dining6" class="media-content" style="display: none;">
+                <img src="dining6.jpg" alt="Dining Table 6">
+                <video controls>
+                <source src="dining6vid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            </div>
+            
+            <div id="dining7" class="media-content" style="display: none;">
+                <img src="dining7.PNG" alt="Dining Table 7">
+                <img src="dining7.1.PNG" alt="Dining Table 7">
+            </div>
+            
+            <div id="dining8" class="media-content" style="display: none;">
+                <img src="dining8.jpg" alt="Dining Table 8">
+                <img src="dining8.1.jpg" alt="Dining Table 8">
+                <img src="dining8.2.jpg" alt="Dining Table 8">
+                <img src="dining8.3.jpg" alt="Dining Table 8">
+            </div>
+            
+            <div id="dining9" class="media-content" style="display: none;">
+                <img src="dining9.jpg" alt="Dining Table 9">
+                <img src="dining9.1.jpg" alt="Dining Table 9">
+                <img src="dining9.2.jpg" alt="Dining Table 9">
+            </div>
+            
+            <div id="dining10" class="media-content" style="display: none;">
+                <img src="dining10.jpg" alt="Dining Table 10">
+                <img src="dining10.1.jpg" alt="Dining Table 10">
+                <img src="dining10.2.jpg" alt="Dining Table 10">
+            </div>
+        </div>
+    </div>
+
+    <div id="mediaModalKitchens" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('mediaModalKitchens')">&times;</span>
+            <div id="kitchen1" class="media-content" style="display: none;">
+                <img src="kich1.PNG" alt="Kitchen Set 1">
+                <img src="kich1.2.PNG" alt="Kitchen Set 1">               
+            </div>
+            
+            <div id="kitchen2" class="media-content" style="display: none;">
+                <img src="kich2.jpg" alt="Kitchen Set 2">
+                <img src="kich2.1.PNG" alt="Kitchen Set 2">
+                <img src="kich2.2.PNG" alt="Kitchen Set 2">
+                <img src="kich2.3.PNG" alt="Kitchen Set 2">
+            </div>
+            
+            <div id="kitchen3" class="media-content" style="display: none;">
+                <img src="kich3.jpg" alt="Kitchen Set 3">
+            </div>
+            
+            <div id="kitchen4" class="media-content" style="display: none;">
+                <img src="kich4.jpg" alt="Kitchen Set 4">
+            </div>
+            
+            <div id="kitchen5" class="media-content" style="display: none;">
+                <img src="kich5.PNG" alt="Kitchen Set 5">
+                <img src="kich5.1.PNG" alt="Kitchen Set 5">
+                <img src="kich5.2.PNG" alt="Kitchen Set 5">
+            </div>
+            
+            <div id="kitchen6" class="media-content" style="display: none;">
+                <img src="kich6.jpg" alt="Kitchen Set 6">
+                <img src="kich6.1.jpg" alt="Kitchen Set 6">
+            </div>
+            
+            <div id="kitchen7" class="media-content" style="display: none;">
+                <img src="kich7.jpg" alt="Kitchen Set 7">
+                <img src="kich7.1.JPG" alt="Kitchen Set 7">
+            </div>
+            
+            <div id="kitchen8" class="media-content" style="display: none;">
+                <img src="kich8.jpg" alt="Kitchen Set 8">
+                <img src="kich8.1.jpg" alt="Kitchen Set 8">
+            </div>
+            
+            <div id="kitchen9" class="media-content" style="display: none;">
+                <img src="kich9.jpg" alt="Kitchen Set 9">
+                <img src="kich9.1.jpg" alt="Kitchen Set 9">
+            </div>
+            
+            <div id="kitchen10" class="media-content" style="display: none;">
+                <img src="kich10.jpg" alt="Kitchen Set 10">
+            </div>
+       
+        </div>
+    </div>
+
+    
+    
+     <!-- Add this at the bottom of your webpage -->
+<div class="cta-section">
+    <p>Interested in one of our stunning furniture pieces or anything you may want to design yourself? Since our furniture is custom-made, prices may vary depending on your unique specifications. If you see something you love or have a custom idea, please reach out to us! We're happy to discuss all inquiries and provide tailored pricing details. Visit our Contact Us page by clicking the button below and take the first step toward owning your dream furniture today!</p>
+    <a href="contact.html" class="cta-button">Contact Us</a>
+</div>
+     
+    </div>
+    
+   
+    
+    <script>
+        function openModal(modalId, contentId, event) {
+            event.preventDefault();
+            const modal = document.getElementById(modalId);
+            if (!modal) {
+                console.error(`Modal with ID ${modalId} not found`);
+                return;
+            }
+            const content = document.getElementById(contentId);
+            if (!content) {
+                console.error(`Content with ID ${contentId} not found`);
+                return;
+            }
+            const allContents = modal.querySelectorAll('.media-content');
+    
+            // Hide all other media content
+            allContents.forEach(item => item.style.display = 'none');
+            content.style.display = 'block';
+            modal.style.display = 'block';
+    
+            // Ensure the modal has a close button
+            let modalContent = modal.querySelector('.modal-content');
+            if (!modalContent) {
+                console.error(`Modal content not found in modal ${modalId}`);
+                modalContent = document.createElement('div');
+                modalContent.className = 'modal-content';
+                modal.appendChild(modalContent);
+            }
+            let existingButton = modalContent.querySelector('.modal-close-button');
+            if (!existingButton) {
+                const closeButton = document.createElement('button');
+                closeButton.className = 'modal-close-button';
+                closeButton.textContent = 'Close';
+                closeButton.onclick = () => closeModal(modalId);
+                modalContent.appendChild(closeButton);
+            }
+        }
+    
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = "none";
+                // Hide all media content
+                modal.querySelectorAll('.media-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                // Pause any playing videos
+                modal.querySelectorAll('video').forEach(video => video.pause());
+            }
+        }
+    
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    // Pause videos when closing
+                    modal.querySelectorAll('video').forEach(video => video.pause());
+                }
+            });
+        };
+    
+        // Disable scroll jump when opening modals
+        document.querySelectorAll('a[onclick]').forEach(anchor => {
+            anchor.addEventListener('click', function(event) {
+                event.preventDefault();
+            });
+        });
+    
+        // Ensure only one video plays at a time
+        document.querySelectorAll('.modal-content video').forEach(video => {
+            video.addEventListener('play', () => {
+                document.querySelectorAll('.modal-content video').forEach(otherVideo => {
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+                });
+            });
+        });
+    
+        // Remove the welcome message after 4 seconds
+        setTimeout(() => {
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            if (welcomeMessage) {
+                welcomeMessage.remove();
+            }
+        }, 4000);
+    </script>
+    </body>
+</html>
